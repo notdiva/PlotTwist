@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Library – PlotTwist</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <header class="top-bar">
+    <h1>Our Library</h1>
+    <a href="/" class="btn view-library">Back to Recommender</a>
+  </header>
+
+  <style>
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("{{ url_for('static', filename='images/bg.jpg') }}") no-repeat center center/cover;
+            opacity: 0.7;
+            z-index: -1;
+        }
+    </style>
+  <div class="container library-container">
+
+    <input type="text" id="search-input" placeholder="Search by title, author, or genre..." />
+
+    <div class="table-wrapper">
+      <table class="library-table" id="library-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Title</th>
+            <th style="width: 20%;">Author</th>
+            <th style="width: 15%;">Genre</th>
+            <th style="width: 45%;">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in books %}
+          <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Simple search filter for library table
+    const searchInput = document.getElementById('search-input');
+    const table = document.getElementById('library-table').getElementsByTagName('tbody')[0];
+
+    searchInput.addEventListener('input', function () {
+      const filter = this.value.toLowerCase();
+      const rows = table.getElementsByTagName('tr');
+
+      Array.from(rows).forEach(row => {
+        const cells = row.getElementsByTagName('td');
+        const text = (
+          cells[0].textContent + " " +
+          cells[1].textContent + " " +
+          cells[2].textContent
+        ).toLowerCase();
+
+        row.style.display = text.includes(filter) ? "" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
