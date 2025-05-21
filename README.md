@@ -70,7 +70,8 @@ python app.py
 
 ## 🎥 Preview
 
-![screenshot](static/ss.jpg)
+<img src="static/images/ss.png" width="600"/>
+
 *A sample UI screenshot of the book recommendation interface.*
 
 ---
