@@ -40,8 +40,8 @@ book-recommendation-system/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/book-recommendation-system.git
-cd book-recommendation-system
+git clone https://github.com/notdiva/plottwist.git
+cd plottwist
 ````
 
 2. **Create a virtual environment (optional but recommended)**
