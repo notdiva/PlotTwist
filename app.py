@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, jsonify, render_template
+import os
 
 # Load and preprocess data
 def load_data(path="books.csv"):
@@ -76,6 +77,9 @@ def custom_recommend():
     recommendations = books_df.iloc[top_indices][["title", "author", "genre"]].to_dict("records")
 
     return jsonify(recommendations)
+
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
 
 if __name__ == '__main__':
     app.run(debug=True)
