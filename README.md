@@ -23,6 +23,7 @@ book-recommendation-system/
 ├── static/
 │   └── images/
 |       └── bg.jpg
+|       └── ss.jpg
 |   └── style.css
 ├── templates/
 │   ├── index.html
