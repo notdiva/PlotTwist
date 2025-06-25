@@ -71,7 +71,6 @@ python app.py
 ## 🎥 Preview
 
 <img src="static/images/ss.png" width="600"/>
-<img src="static/images/ss2.png" width="600"/>
 
 *A sample UI screenshot of the book recommendation interface.*
 
